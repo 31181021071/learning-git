@@ -1,6 +1,5 @@
 package com.example.demo.controller;
 
-import com.example.demo.dao.EmployeeDAO;
 import com.example.demo.entity.Employee;
 import com.example.demo.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,11 +25,7 @@ public class EmployeeController {
 
     @GetMapping("/employees/{id}")
     public Employee getEmployeeById(@PathVariable int id) {
-        Employee employee = employeeService.findById(id);
-        if (employee == null) {
-            throw new RuntimeException("Employee id not found - " + id);
-        }
-        return employee;
+        return employeeService.findById(id);
     }
 
     @PostMapping("/employees")
